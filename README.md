@@ -16,15 +16,13 @@ Getting Started:
 ## docker:
 * Export your GOPATH variable, alternatively create a `.env` file and add `GOPATH=<PATH TO GO DIR>`. To obtain the it use `go env GOPATH`.
 * Run the command to launch the docker-container. Live reloading is already configured for the [gin](github.com/gin-gonic/gin) framework.
-* 
-             docker-compose up
-
+  
+        docker-compose up
 * [Reflex](github.com/cespare/reflex) is configured to auto-reload on changes to any `*.go` file in the workspace. This can be updates in the `reflex.conf` file in the directory.
   
 * After making changes to the `Dockerfile` or `docker-compose.yml` always rebuild.
 
-            docker-compose up --build
-
+        docker-compose up --build
 * To exit 
 
-            docker-compose down
+        docker-compose down
