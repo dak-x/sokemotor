@@ -1,0 +1,1 @@
+Browser Extension to collect data and log into the local storage container.

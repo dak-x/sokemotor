@@ -1,0 +1,23 @@
+version: "3.8"
+
+services: 
+    sokemotor:
+        build:
+            context: .
+        container_name: sokemotor
+        hostname: sokemotor
+        networks: 
+            - soke-elastic
+        ports: 
+            - 8080:8080
+        
+        working_dir: /app
+
+        volumes: 
+            - ./:/app
+            - $GOPATH:/go/
+
+networks:
+    soke-elastic:
+        driver: bridge
+        
