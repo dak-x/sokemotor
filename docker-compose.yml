@@ -6,6 +6,10 @@ services:
             context: .
         container_name: sokemotor
         hostname: sokemotor
+
+        depends_on: 
+            - elastic
+
         networks: 
             - soke-elastic
         ports: 
@@ -17,7 +21,21 @@ services:
             - ./:/app
             - $GOPATH:/go/
 
+    elastic:
+        image: elasticsearch:7.13.4
+
+        environment: 
+            - discovery.type=single-node
+
+        container_name: elastic
+        hostname: elastic
+        volumes: 
+            - elastic-data:/usr/share/elasticsearch/data
+        networks: 
+            - soke-elastic     
 networks:
     soke-elastic:
         driver: bridge
-        
+
+volumes: 
+    elastic-data:

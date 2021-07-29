@@ -1,25 +1,33 @@
 package main
 
 import (
-	"net/http"
+	"log"
 
+	"github.com/elastic/go-elasticsearch/v7"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 
+	_, err := elasticsearch.NewDefaultClient()
+	if err != nil {
+		log.Fatal("Elastic Instance Not Running Exiting...")
+	}
+
 	app := gin.Default()
-	app.GET("/", searchHandler)
 	app.GET("/search/:query", searchHandler)
 	app.POST("/document", documentHandler)
-
+	app.POST("/indexHtml", processHtml)
 	app.Run("0.0.0.0:8080")
 }
 
 func searchHandler(c *gin.Context) {
-	c.String(http.StatusAccepted, "You Pinged")
 }
 
 func documentHandler(c *gin.Context) {
+
+}
+
+func processHtml(c *gin.Context) {
 
 }
