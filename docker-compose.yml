@@ -9,7 +9,7 @@ services:
 
         depends_on: 
             - elastic
-
+  
         networks: 
             - soke-elastic
         ports: 
@@ -20,19 +20,22 @@ services:
         volumes: 
             - ./:/app
             - $GOPATH:/go/
-
+        
+        
     elastic:
         image: elasticsearch:7.13.4
-
+ 
         environment: 
             - discovery.type=single-node
-
+ 
         container_name: elastic
         hostname: elastic
         volumes: 
             - elastic-data:/usr/share/elasticsearch/data
         networks: 
-            - soke-elastic     
+            - soke-elastic  
+
+   
 networks:
     soke-elastic:
         driver: bridge
