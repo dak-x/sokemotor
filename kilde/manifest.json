@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Kilde",
+  "version": "1.0",
+  "description": "Indexes your web-activity to your sokemotor local instance.",
+  "permissions": [
+    "*://localhost/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "postToSoke.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
