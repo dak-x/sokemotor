@@ -2,52 +2,20 @@ package main
 
 import (
 	"log"
-	"time"
+	"net/http"
+	"sokemotor/elastic"
 
-	"github.com/elastic/go-elasticsearch/v7"
 	"github.com/gin-gonic/gin"
 )
 
-func getEsClint() *elasticsearch.Client {
-
-	esCfg := elasticsearch.Config{
-		Addresses: []string{
-			"http://elastic:9200/",
-		},
-	}
-
-	es, err := elasticsearch.NewClient(esCfg)
-
-	if err != nil {
-		log.Fatalf("Cannot create Client: %v", err)
-	}
-
-	res, err := es.Info()
-
-	var numRetry int = 0
-
-	for err != nil {
-		time.Sleep(3 * time.Second)
-		numRetry++
-		if numRetry == 5 {
-			break
-		}
-		res, err = es.Info()
-	}
-
-	if err != nil {
-		log.Fatalf("Elastic is not running %s", err)
-	}
-
-	log.Printf("ELASTIC IS UP: %v", res)
-	log.Printf("STARTING SOKEMOTOR SERVICE")
-
-	return es
+type htmlDocument struct {
+	Url string `json:"url"`
+	Dom string `json:"dom"`
 }
 
 func main() {
 
-	_ = getEsClint()
+	_ = elastic.GetEsClint()
 
 	app := gin.Default()
 	app.GET("/search/:query", searchHandler)
@@ -65,4 +33,18 @@ func documentHandler(c *gin.Context) {
 
 func processHtml(c *gin.Context) {
 
+	var v htmlDocument
+
+	err := c.Bind(&v)
+
+	if err != nil {
+		log.Printf("Error %v", err)
+	} else {
+		log.Printf("Recevied: %v", v.Url)
+	}
+
+	c.JSON(http.StatusCreated, gin.H{
+		"url":     v.Url,
+		"Created": "true",
+	})
 }
