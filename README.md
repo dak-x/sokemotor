@@ -10,7 +10,7 @@ Getting Started:
     1.  Some configurable sources
     2.  Plugin support for sources not available
 5. Design the Search Frontend.
-
+6. Include a polybar extension as well.
 
 # Contrubting:
 ## docker:
