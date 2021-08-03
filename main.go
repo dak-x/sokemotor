@@ -3,19 +3,16 @@ package main
 import (
 	"log"
 	"net/http"
+
 	"sokemotor/elastic"
+	"sokemotor/models"
 
 	"github.com/gin-gonic/gin"
 )
 
-type htmlDocument struct {
-	Url string `json:"url"`
-	Dom string `json:"dom"`
-}
-
 func main() {
 
-	_ = elastic.GetEsClint()
+	_ = elastic.GetEsClient()
 
 	app := gin.Default()
 	app.GET("/search/:query", searchHandler)
@@ -33,7 +30,7 @@ func documentHandler(c *gin.Context) {
 
 func processHtml(c *gin.Context) {
 
-	var v htmlDocument
+	var v models.HtmlDocument
 
 	err := c.Bind(&v)
 
