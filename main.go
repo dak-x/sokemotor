@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"sokemotor/elastic"
+	elastic "sokemotor/controller"
 	"sokemotor/models"
 
 	"github.com/gin-gonic/gin"
@@ -12,12 +12,12 @@ import (
 
 func main() {
 
-	_ = elastic.GetEsClient()
+	_ = elastic.Client()
 
 	app := gin.Default()
 	app.GET("/search/:query", searchHandler)
 	app.POST("/document", documentHandler)
-	app.POST("/indexHtml", processHtml)
+	app.POST("/indexHtml", processHTML)
 	app.Run("0.0.0.0:8080")
 }
 
@@ -28,7 +28,7 @@ func documentHandler(c *gin.Context) {
 
 }
 
-func processHtml(c *gin.Context) {
+func processHTML(c *gin.Context) {
 
 	var v models.HtmlDocument
 

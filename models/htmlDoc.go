@@ -1,15 +1,37 @@
 package models
 
+var IndexName = "myindex"
+
 type HtmlDocument struct {
 	Url string `json:"url"`
 	Dom string `json:"dom"`
 }
 
-// For elastic-search indexing
-const HtmlDocumentMapping string = `"mappings": {
-	"properties": {
-		"url" : {"type" : ""},
-		"htmltext" : {"type" : "text"},
-		"time_of_registry" : {"type" : "date"},
+// Mapping
+var HtmlDocumentMapping string = `{
+	"settings":{
+		"analysis":{
+		   "analyzer":{
+			  "my_analyzer":{
+				 "type":"custom",
+				 "tokenizer":"uax_url_email",
+				 "filter":[
+					"lowercase",
+					"asciifolding"
+				 ]
+			  }
+		   }
+		}
+	 },
+
+	"mappings": {
+		"properties": {
+			"lastaccessed" : {"type" : "date"},
+			"url" : {"type" : "keyword"},
+			"htmltext" : {
+				"type" : "text",
+				"analyzer":"my_analyzer"
+			}
+		}
 	}
   }`

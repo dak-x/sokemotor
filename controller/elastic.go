@@ -13,6 +13,7 @@ import (
 
 var client *elasticsearch.Client
 
+// One Time Setup on init
 func init() {
 
 	esCfg := elasticsearch.Config{
@@ -20,47 +21,57 @@ func init() {
 			"http://elastic:9200/",
 		},
 	}
+	var err error
 
-	client, err := elasticsearch.NewClient(esCfg)
+	// Get a new client
+	client, err = elasticsearch.NewClient(esCfg)
 
 	utils.HandleFatalError("Error creating client", err)
 
 	esInfo, err := client.Info()
 
 	var numRetries int = 0
+	// Retry till instance is up.
 	for err != nil {
 		// Wait for the instane to get up and running.
 		time.Sleep(3 * time.Second)
 		numRetries++
-		if numRetries == 5 {
+		if numRetries == 10 {
 			break
 		}
 		esInfo, err = client.Info()
 	}
-
 	utils.HandleFatalError("Coundn't connect to elastic instance", err)
-
+	// Connected to elaticSearch
 	log.Printf("%v", esInfo)
 
-	// Default Mapping the string.
 	err = createIndex(models.HtmlDocumentMapping)
-
-	utils.HandleFatalError("Index creation error:", err)
-
+	utils.HandleFatalError("Index Creation Error", err)
 }
 
-func GetEsClient() *elasticsearch.Client {
+func Client() *elasticsearch.Client {
 	return client
 }
 
 func createIndex(mapping string) error {
-	res, err := client.Indices.Create("index01", client.Indices.Create.WithBody(strings.NewReader(mapping)))
+
+	res, err := client.Indices.Exists([]string{models.IndexName})
 
 	if err != nil {
 		return err
 	}
+
+	// Index not found, so Creating one.
 	if res.IsError() {
+		res, err = client.Indices.Create("myindex", client.Indices.Create.WithBody(strings.NewReader(mapping)))
+		log.Println("INDEX CREATED")
+	}
+
+	if err != nil {
+		return err
+	} else if res.IsError() {
 		return fmt.Errorf("error: %s", res)
 	}
+
 	return nil
 }
