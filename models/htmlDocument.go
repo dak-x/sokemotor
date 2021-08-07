@@ -3,8 +3,9 @@ package models
 var IndexName = "myindex"
 
 type HtmlDocument struct {
-	Url string `json:"url"`
-	Dom string `json:"dom"`
+	Url          string `json:"url"`
+	Dom          string `json:"dom"`
+	LastAccessed string `json:"lastaccessed"`
 }
 
 // Mapping

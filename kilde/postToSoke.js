@@ -2,27 +2,35 @@
 
 var htmlString = document.getElementsByTagName("html")[0].innerHTML
 var url = document.URL
-console.log(url)
+var today = new Date()
+
+jsonData = {
+  "url": url,
+  "dom": htmlString,
+  "lastaccessed": today.toISOString()
+}
+
+console.log(jsonData)
 
 // POST method implementation:
 async function postData(url = '', data = {}) {
-    const response = await fetch(url, {
-      method: 'POST', 
-      mode: 'cors', 
-      cache: 'no-cache', 
-      credentials: 'same-origin', 
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      redirect: 'follow', 
-      referrerPolicy: 'no-referrer', 
-      body: JSON.stringify(data) 
-    });
-    return response.json();
-  }
-  
-postData('http://localhost:8080/indexHtml', { "url" : url, "dom": htmlString})
-    .then(data => {
-      console.log(data); // JSON data parsed by `data.json()` call
-    });
-  
+  const response = await fetch(url, {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+    body: JSON.stringify(data)
+  });
+  return response.json();
+}
+
+
+postData('http://localhost:8080/indexHTML', jsonData)
+  .then(data => {
+    console.log(data); // JSON data parsed by `data.json()` call
+  });

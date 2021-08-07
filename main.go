@@ -17,7 +17,7 @@ func main() {
 	app := gin.Default()
 	app.GET("/search/:query", searchHandler)
 	app.POST("/document", documentHandler)
-	app.POST("/indexHtml", processHTML)
+	app.POST("/indexHTML", processHTML)
 	app.Run("0.0.0.0:8080")
 }
 
