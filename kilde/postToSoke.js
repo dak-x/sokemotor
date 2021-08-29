@@ -1,6 +1,6 @@
 // Send the entire html page to the Index Html endpoint of sokemotor.
 
-var htmlString = document.getElementsByTagName("html")[0].innerHTML
+var htmlString = document.getElementsByTagName("html")[0].innerText
 var url = document.URL
 var today = new Date()
 
