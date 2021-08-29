@@ -23,10 +23,17 @@ func main() {
 
 func searchHandler(c *gin.Context) {
 
+	queryString := c.Param("query")
+
+	log.Printf("searching for: %v\n", queryString)
+
+	val, _ := elastic.SearchIndex(queryString)
+
+	c.JSON(http.StatusAccepted, val)
 }
 
 func documentHandler(c *gin.Context) {
-
+	c.String(http.StatusNotImplemented, "custom docs not yet implemented.")
 }
 
 func processHTML(c *gin.Context) {
@@ -37,13 +44,16 @@ func processHTML(c *gin.Context) {
 
 	if err != nil {
 		log.Printf("indexHTML Error: %v", err)
+		c.String(http.StatusBadRequest, "%v\n", err)
 		return
 	}
 
+	// Index into es node.
 	err = elastic.InsertIntoIndex(v)
 
 	if err != nil {
 		log.Printf("indexHTML Error: %v", err)
+		c.String(http.StatusInternalServerError, "%v", err)
 		return
 	}
 

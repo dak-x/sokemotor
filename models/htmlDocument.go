@@ -1,6 +1,6 @@
 package models
 
-var IndexName = "myindex"
+var HtmlIndexName = "myindex"
 
 type HtmlDocument struct {
 	Url          string `json:"url"`
@@ -18,7 +18,7 @@ var HtmlDocumentMapping string = `{
 				 "tokenizer":"uax_url_email",
 				 "filter":[
 					"lowercase",
-					"asciifolding"
+
 				 ]
 			  }
 		   }
