@@ -7,6 +7,7 @@ import (
 	elastic "sokemotor/controller"
 	"sokemotor/models"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,6 +16,13 @@ func main() {
 	_ = elastic.Client()
 
 	app := gin.Default()
+
+	corsConfig := cors.DefaultConfig()
+
+	corsConfig.AllowOrigins = []string{"*"}
+	corsConfig.AllowCredentials = true
+	app.Use(cors.New(corsConfig))
+
 	app.GET("/search/:query", searchHandler)
 	app.POST("/document", documentHandler)
 	app.POST("/indexHTML", processHTML)
