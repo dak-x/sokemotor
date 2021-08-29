@@ -1,8 +1,9 @@
 body {
-        background: #F2F4F8;
-    }
-    .main-container{
-            background: white;
+    background: #F2F4F8;
+}
+
+.main-container {
+    background: white;
     height: 80vh;
     padding: 24px;
     margin: 50px;
@@ -11,180 +12,160 @@ body {
     justify-content: space-evenly;
     margin-bottom: 0px;
     border-radius: 20px;
-        
-    }
-
-    .top-container {
-
-
-        display: flex;
-        height: 10%;
-        justify-content: space-evenly;
-    }
-
-    .search-bar {
-
-        /* Input field background */
-        width: 60%;
-        height: 74px;
-        background: #F2F4F8;
-        border-radius: 12px;
-        outline: none;
-        border-style: none;
-        /* Inside Auto Layout */
-
-        flex: none;
-        order: 0;
-        flex-grow: 0;
-
-        padding-left: 40px;
-        font-family: Apercu Pro;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 26px;
-        color: #000;
-
-    }
-
-
-    .search-button {
-
-
-        width: 15%;
-        height: 74px;
-        border-style: none;
-        color: white;
-        border-radius: 12px;
-        background: black;
-
-        font-family: Apercu Pro;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 26px;
-    }
-    .select-box{
-        width: 15%;
-        position: relative;
-    }
-
-
-    .select {
-
-
-
-
-        width: 100%;
-
-        overflow: hidden;
-        height: 74px;
-        font-size: 20px;
-        box-sizing: border-box;
-        border-radius: 12px;
-        outline: none;
-        border-style: none;
-        border:2px solid #F2F4F8;
-        background: white;
-
-    }
-
-    .drop-down-item {
-        border: 1px solid white;
-        border-radius: 5px;
-        padding: 5px;
-        background:#F2F4F8 ;
-        
-        font-family: Apercu Pro;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 26px;
-        color: #000;
-
-
-    }
-
-    .selected-container{
-        display: flex;
-        margin-top: 10px;
-    }
-
-    .drop-downs{
-        position: absolute;
-        z-index: 1;
-        flex-direction: column;
-        display: flex;
-        width: 100%;
-
-    }
-
-
-    .bottom-selected-items{
-        
-        
-
-
-        margin: 10px;
-        padding: 10px;
-        position: relative;
-        box-sizing: border-box;
-        border-radius: 12px;
-        display: flex;
-        justify-content: space-between;
-        outline: none;
-        background: #F2F4F8;
-
-        border-style: none;
-
-    }
-    .cross-icon{
-        position: absolute;
-        top:-10px;
-        right: -10px;
-        outline: none;
-        border-style: none;
-        /* border:2px solid rgb(112, 65, 65); */
-        border-radius: 50px;
-    }
-
-
-    .card-container{
-        height:  600px;
-        overflow: scroll;
-        /* margin-top: 20px; */
-        overflow-x: hidden;
-        height: 80%;
-        /* overflow-y:visible; */
-    }
-.card-container::-webkit-scrollbar {
-width: 20px;
 }
 
-.loading{
+.top-container {
+    display: flex;
+    height: 10%;
+    justify-content: space-evenly;
+}
+
+.search-bar {
+    /* Input field background */
+    width: 60%;
+    height: 74px;
+    background: #F2F4F8;
+    border-radius: 12px;
+    outline: none;
+    border-style: none;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    padding-left: 40px;
+    font-family: Apercu Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: #000;
+}
+
+.search-button {
+    width: 15%;
+    height: 74px;
+    border-style: none;
+    color: white;
+    border-radius: 12px;
+    background: black;
+    font-family: Apercu Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.select-box {
+    width: 15%;
+    position: relative;
+}
+
+.select {
+    width: 100%;
+    overflow: hidden;
+    height: 74px;
+    font-size: 20px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    outline: none;
+    border-style: none;
+    border: 2px solid #F2F4F8;
+    background: white;
+}
+
+.drop-down-item {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    background: #F2F4F8;
+    font-family: Apercu Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: #000;
+}
+
+.selected-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+.drop-downs {
+    position: absolute;
+    z-index: 1;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+}
+
+.bottom-selected-items {
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    outline: none;
+    background: #F2F4F8;
+    border-style: none;
+}
+
+.cross-icon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    outline: none;
+    border-style: none;
+    /* border:2px solid rgb(112, 65, 65); */
+    border-radius: 50px;
+}
+
+.card-container {
+    height: 600px;
+    overflow: scroll;
+    /* margin-top: 20px; */
+    overflow-x: hidden;
+    height: 80%;
+    /* overflow-y:visible; */
+}
+
+.card-container::-webkit-scrollbar {
+    width: 20px;
+}
+
+.loading {
     font-size: 50px;
 }
+
+
 /* Track */
+
 .card-container::-webkit-scrollbar-track {
-background: white;
-border-radius: 10px;
+    background: white;
+    border-radius: 10px;
 }
+
 
 /* Handle */
+
 .card-container::-webkit-scrollbar-thumb {
-background:#EDF6F8; 
-height: 75px;
-border: 5px solid white;
-background-clip: padding-box;
-/* border-radius: 10px; */
+    background: #EDF6F8;
+    height: 75px;
+    border: 5px solid white;
+    background-clip: padding-box;
+    /* border-radius: 10px; */
 }
+
 
 /* Handle on hover */
+
 .card-container::-webkit-scrollbar-thumb:hover {
-background:#EDF6F8; 
+    background: #EDF6F8;
 }
 
-    em{
-        font-weight: 900;
-        font-style: normal;
-    }
+em {
+    font-weight: 900;
+    font-style: normal;
+}

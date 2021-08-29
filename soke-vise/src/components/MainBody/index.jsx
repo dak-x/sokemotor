@@ -33,8 +33,8 @@ export default function MainBody() {
 
 
 		})
-		if(lis.length===0){
-			lis=[{title:"No data found",url:"",lastaccessed:"",dom:""}]
+		if (lis.length === 0) {
+			lis = [{ title: "No data found", url: "", lastaccessed: "", dom: "" }]
 		}
 		return lis
 
@@ -165,7 +165,7 @@ export default function MainBody() {
 
 				}
 
-				
+
 			</div>
 		</div>
 	)

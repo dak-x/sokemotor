@@ -1,1 +1,1 @@
-export const baseUrl = "https://42e5-2405-201-4019-9b7b-55d1-7b40-bc65-d7ae.ngrok.io"
+export const baseUrl = "http://localhost:8080"
