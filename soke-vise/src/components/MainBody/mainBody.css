@@ -2,18 +2,23 @@ body {
         background: #F2F4F8;
     }
     .main-container{
-        background: white;
-        height: 700px;
-        padding: 24px;
-        margin: 72px;
-        border-radius: 20px;
+            background: white;
+    height: 80vh;
+    padding: 24px;
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 0px;
+    border-radius: 20px;
+        
     }
 
     .top-container {
 
 
         display: flex;
-
+        height: 10%;
         justify-content: space-evenly;
     }
 
@@ -100,6 +105,11 @@ body {
 
     }
 
+    .selected-container{
+        display: flex;
+        margin-top: 10px;
+    }
+
     .drop-downs{
         position: absolute;
         z-index: 1;
@@ -140,5 +150,41 @@ body {
 
 
     .card-container{
-        margin-top: 20px;
+        height:  600px;
+        overflow: scroll;
+        /* margin-top: 20px; */
+        overflow-x: hidden;
+        height: 80%;
+        /* overflow-y:visible; */
+    }
+.card-container::-webkit-scrollbar {
+width: 20px;
+}
+
+.loading{
+    font-size: 50px;
+}
+/* Track */
+.card-container::-webkit-scrollbar-track {
+background: white;
+border-radius: 10px;
+}
+
+/* Handle */
+.card-container::-webkit-scrollbar-thumb {
+background:#EDF6F8; 
+height: 75px;
+border: 5px solid white;
+background-clip: padding-box;
+/* border-radius: 10px; */
+}
+
+/* Handle on hover */
+.card-container::-webkit-scrollbar-thumb:hover {
+background:#EDF6F8; 
+}
+
+    em{
+        font-weight: 900;
+        font-style: normal;
     }
