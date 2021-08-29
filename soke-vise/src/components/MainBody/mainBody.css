@@ -1,0 +1,144 @@
+body {
+        background: #F2F4F8;
+    }
+    .main-container{
+        background: white;
+        height: 700px;
+        padding: 24px;
+        margin: 72px;
+        border-radius: 20px;
+    }
+
+    .top-container {
+
+
+        display: flex;
+
+        justify-content: space-evenly;
+    }
+
+    .search-bar {
+
+        /* Input field background */
+        width: 60%;
+        height: 74px;
+        background: #F2F4F8;
+        border-radius: 12px;
+        outline: none;
+        border-style: none;
+        /* Inside Auto Layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+
+        padding-left: 40px;
+        font-family: Apercu Pro;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 26px;
+        color: #000;
+
+    }
+
+
+    .search-button {
+
+
+        width: 15%;
+        height: 74px;
+        border-style: none;
+        color: white;
+        border-radius: 12px;
+        background: black;
+
+        font-family: Apercu Pro;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .select-box{
+        width: 15%;
+        position: relative;
+    }
+
+
+    .select {
+
+
+
+
+        width: 100%;
+
+        overflow: hidden;
+        height: 74px;
+        font-size: 20px;
+        box-sizing: border-box;
+        border-radius: 12px;
+        outline: none;
+        border-style: none;
+        border:2px solid #F2F4F8;
+        background: white;
+
+    }
+
+    .drop-down-item {
+        border: 1px solid white;
+        border-radius: 5px;
+        padding: 5px;
+        background:#F2F4F8 ;
+        
+        font-family: Apercu Pro;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 26px;
+        color: #000;
+
+
+    }
+
+    .drop-downs{
+        position: absolute;
+        z-index: 1;
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+
+    }
+
+
+    .bottom-selected-items{
+        
+        
+
+
+        margin: 10px;
+        padding: 10px;
+        position: relative;
+        box-sizing: border-box;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        outline: none;
+        background: #F2F4F8;
+
+        border-style: none;
+
+    }
+    .cross-icon{
+        position: absolute;
+        top:-10px;
+        right: -10px;
+        outline: none;
+        border-style: none;
+        /* border:2px solid rgb(112, 65, 65); */
+        border-radius: 50px;
+    }
+
+
+    .card-container{
+        margin-top: 20px;
+    }

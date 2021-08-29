@@ -1,0 +1,51 @@
+.title{
+	width: 912px;
+height: 26px;
+
+/* Regular text */
+
+font-family: Apercu Pro;
+font-style: normal;
+font-weight: 800;
+font-size: 40px;
+line-height: 26px;
+/* identical to box height, or 130% */
+
+
+/* Black */
+
+color: #000000;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 20px 0px;
+}
+
+.flex-container{
+	display: flex;
+	justify-content: space-between;
+}
+
+.inner-text{
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.link,.link:visited{
+	text-decoration: none;
+}
+
+.card{
+
+	/* width: 80%; */
+	padding: 20px;
+	box-sizing: border-box;
+	margin: 20px auto;
+	background: #F2F4F8;
+	border-radius: 30px;
+
+}
